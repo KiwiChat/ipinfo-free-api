@@ -10,10 +10,10 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <router-link class="navbar-item" to="/ip">IP Lookup</router-link>
-            <router-link class="navbar-item" to="/asn">ASN Lookup</router-link>
-            <router-link class="navbar-item" to="/documentation">Documentation</router-link>
-            <router-link class="navbar-item" to="/about">About</router-link>
+            <router-link class="navbar-item" to="/ip-information">IP Lookup</router-link>
+            <router-link class="navbar-item" to="/asn-lookup">ASN Lookup</router-link>
+            <router-link class="navbar-item" to="/api-documentation">Documentation</router-link>
+            <router-link class="navbar-item" to="/about-us">About</router-link>
           </div>
         </div>
       </div>
