@@ -1,51 +1,19 @@
 <template>
   <div id="app">
     <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <!-- <router-link class="navbar-item" to="/"> -->
-        <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
-        <!-- </router-link> -->
-
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
-          @click="toggleNavMenu">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div id="navbarBasicExample" :class="{ 'is-active': isNavMenuActive }" class="navbar-menu">
-        <div class="navbar-start">
-          <router-link class="navbar-item" to="/">IP Lookup</router-link>
-          <router-link class="navbar-item" to="/asn">ASN Lookup</router-link>
-          <router-link class="navbar-item" to="/documentation">Documentation</router-link>
-
-          <div class="navbar-item has-dropdown" :class="{ 'is-active': isMoreDropdownActive }"
-            @click="toggleMoreDropdown">
-            <a class="navbar-link">
-              More
-            </a>
-
-            <div class="navbar-dropdown">
-              <router-link class="navbar-item" to="/about">About</router-link>
-              <!-- <router-link class="navbar-item" to="/jobs">Jobs</router-link> -->
-              <router-link class="navbar-item" to="/contact">Contact</router-link>
-              <!-- <hr class="navbar-divider"> -->
-              <!-- <a class="navbar-item">Report an issue</a> -->
-            </div>
-          </div>
+      <div class="container">
+        <div class="navbar-brand">
+          <router-link class="navbar-item" to="/">
+            <span class="logo">IP<span class="logo-highlight">Lookup</span></span>
+          </router-link>
         </div>
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <!-- <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">
-                Log in
-              </a>
-            </div> -->
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <router-link class="navbar-item" to="/ip">IP Lookup</router-link>
+            <router-link class="navbar-item" to="/asn">ASN Lookup</router-link>
+            <router-link class="navbar-item" to="/documentation">Documentation</router-link>
+            <router-link class="navbar-item" to="/about">About</router-link>
           </div>
         </div>
       </div>
@@ -57,21 +25,134 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isNavMenuActive: false,
-      isMoreDropdownActive: false,
-    };
-  },
-  methods: {
-    toggleNavMenu() {
-      this.isNavMenuActive = !this.isNavMenuActive;
-    },
-    toggleMoreDropdown() {
-      this.isMoreDropdownActive = !this.isMoreDropdownActive;
-    },
-  },
+  // 移除了 data 和 methods
 };
 </script>
 
-<style></style>
+<style>
+:root {
+  --primary-color: #1a237e; /* 深蓝色 */
+  --secondary-color: #283593; /* 稍浅的蓝色 */
+  --accent-color: #00bcd4; /* 青色 */
+  --text-color: #ffffff; /* 纯白色 */
+  --hover-color: rgba(255, 255, 255, 0.2);
+  --active-color: rgba(255, 255, 255, 0.3);
+  --logo-gradient-start: #00bcd4; /* 青色 */
+  --logo-gradient-end: #4caf50; /* 绿色 */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.navbar {
+  background-color: var(--primary-color);
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar-brand .navbar-item {
+  padding: 0;
+}
+
+.logo {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(45deg, var(--logo-gradient-start), var(--logo-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-inline-color: transparent;
+}
+
+.logo-highlight {
+  font-weight: 300;
+}
+
+.navbar-item,
+.navbar-link {
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+  padding: 1rem;
+}
+
+.navbar-item:hover,
+.navbar-link:hover,
+.navbar-item.is-active,
+.navbar-link.is-active {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.navbar-dropdown {
+  background-color: var(--secondary-color);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.navbar-dropdown .navbar-item {
+  padding: 0.75rem 1rem;
+}
+
+.navbar-dropdown .navbar-item:hover {
+  background-color: var(--hover-color);
+}
+
+.navbar-burger {
+  color: var(--text-color);
+  height: 4rem;
+}
+
+.navbar-burger:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    background-color: #ffffff;
+  }
+
+  .navbar-menu.is-active {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-item,
+  .navbar-link {
+    color: var(--primary-color);
+  }
+
+  .navbar-item:hover,
+  .navbar-link:hover,
+  .navbar-item.is-active,
+  .navbar-link.is-active {
+    background-color: #f5f5f5;
+    color: var(--accent-color);
+  }
+
+  .navbar-dropdown {
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-dropdown .navbar-item:hover {
+    background-color: #f5f5f5;
+  }
+
+  .navbar-burger {
+    color: var(--text-color);
+  }
+}
+</style>
