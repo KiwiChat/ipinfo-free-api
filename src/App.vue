@@ -20,6 +20,18 @@
     </nav>
 
     <router-view />
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p class="copyright">
+          © 2023 IP Address Lookup. All rights reserved.
+        </p>
+        <p class="links">
+          <router-link to="/privacy-policy">Privacy Policy</router-link> |
+          <router-link to="/terms-of-service">Terms of Service</router-link> |
+          <router-link to="/contact">Contact Us</router-link>
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -155,4 +167,27 @@ body {
     color: var(--text-color);
   }
 }
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
+  /* background-color: var(--primary-color); */
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+
+.footer .copyright {
+  margin-bottom: 0.5rem;
+}
+
+.footer .links {
+  margin-bottom: 0;
+}
+
 </style>
