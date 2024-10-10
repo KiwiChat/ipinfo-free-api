@@ -55,7 +55,7 @@
                 <p><strong>MNC:</strong> {{ ipInfo.carrier?.mnc ?? 'N/A' }}</p>
                 <font-awesome-icon icon="broadcast-tower" class="background-icon" />
               </div>
-              <div class="info-card privacy-info">
+              <div class="info-card ipprivacy-info">
                 <h3>Privacy Information</h3>
                 <div class="privacy-content">
                   <div v-for="(value, key) in ipInfo.privacy" :key="key" class="privacy-item">
@@ -174,18 +174,18 @@
 }
 
 /* 为 Privacy Information 添加特殊样式 */
-.info-card.privacy-info {
+.info-card.ipprivacy-info {
   display: block;
   /* 改为块级显示 */
 }
 
-.privacy-info .privacy-content {
+.ipprivacy-info .privacy-content {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.privacy-info .privacy-item {
+.ipprivacy-info .privacy-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
