@@ -169,7 +169,8 @@ export default {
         // Save the entered ASN to the cookie
         this.saveAsnToCookie(this.ipAddress);
       } catch (error) {
-        console.error("Error fetching ASN info:", error);
+        // eslint-disable-next-line no-console
+        console.error('Error fetching IP from Cloudflare:', error);
         this.ipInfo = null;
       }
     },
@@ -200,7 +201,7 @@ export default {
     lookupAsn(asn) {
       this.ipAddress = asn;
       this.lookupIpAddress();
-      this.$router.push({ path: '/asn', query: { asn: asn } });
+      this.$router.push({ path: '/asn-lookup', query: { asn: asn } });
     },
     getIconClass(key) {
       const iconMap = {
