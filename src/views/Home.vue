@@ -20,17 +20,18 @@
               <div class="info-card basic-info">
                 <h3>Basic Information</h3>
                 <p><strong>IP Address:</strong> {{ ipInfo.ip }}</p>
-                <p><strong>Location:</strong> {{ ipInfo.city ?? 'N/A' }}, {{ ipInfo.region ?? 'N/A' }}, {{ ipInfo.country ?? 'N/A' }}</p>
+                <p><strong>Location:</strong> {{ ipInfo.city ?? 'N/A' }}, {{ ipInfo.region ?? 'N/A' }}, {{
+                  ipInfo.country ?? 'N/A' }}</p>
                 <p><strong>Coordinates:</strong> {{ ipInfo.loc ?? 'N/A' }}</p>
                 <p><strong>Timezone:</strong> {{ ipInfo.timezone ?? 'N/A' }}</p>
                 <p><strong>Postal Code:</strong> {{ ipInfo.postal ?? 'N/A' }}</p>
-                <i class="fas fa-info-circle background-icon"></i>
+                <font-awesome-icon icon="info-circle" class="background-icon" />
               </div>
               <div class="info-card network-info">
                 <h3>Network Information</h3>
-                <p><strong>ASN: </strong>  
+                <p><strong>ASN: </strong>
                   <router-link v-if="ipInfo.asn?.asn" :to="{ path: '/asn-lookup', query: { asn: ipInfo.asn.asn } }">
-                     {{ ipInfo.asn.asn }}
+                    {{ ipInfo.asn.asn }}
                   </router-link>
                   <span v-else>N/A</span>
                 </p>
@@ -38,21 +39,21 @@
                 <p><strong>Domain:</strong> {{ ipInfo.asn?.domain ?? 'N/A' }}</p>
                 <p><strong>Route:</strong> {{ ipInfo.asn?.route ?? 'N/A' }}</p>
                 <p><strong>Type:</strong> {{ ipInfo.asn?.type ?? 'N/A' }}</p>
-                <i class="fas fa-network-wired background-icon"></i>
+                <font-awesome-icon icon="network-wired" class="background-icon" />
               </div>
               <div class="info-card company-info">
                 <h3>Company Information</h3>
                 <p><strong>Name:</strong> {{ ipInfo.company?.name ?? 'N/A' }}</p>
                 <p><strong>Domain:</strong> {{ ipInfo.company?.domain ?? 'N/A' }}</p>
                 <p><strong>Type:</strong> {{ ipInfo.company?.type ?? 'N/A' }}</p>
-                <i class="fas fa-building background-icon"></i>
+                <font-awesome-icon icon="building" class="background-icon" />
               </div>
               <div class="info-card carrier-info">
                 <h3>Carrier Information</h3>
                 <p><strong>Name:</strong> {{ ipInfo.carrier?.name ?? 'N/A' }}</p>
                 <p><strong>MCC:</strong> {{ ipInfo.carrier?.mcc ?? 'N/A' }}</p>
                 <p><strong>MNC:</strong> {{ ipInfo.carrier?.mnc ?? 'N/A' }}</p>
-                <i class="fas fa-broadcast-tower background-icon"></i>
+                <font-awesome-icon icon="broadcast-tower" class="background-icon" />
               </div>
               <div class="info-card privacy-info">
                 <h3>Privacy Information</h3>
@@ -64,7 +65,7 @@
                     </span>
                   </div>
                 </div>
-                <i class="fas fa-user-shield background-icon"></i>
+                <font-awesome-icon icon="user-shield" class="background-icon" />
               </div>
               <div class="info-card abuse-info">
                 <h3>Abuse Information</h3>
@@ -74,7 +75,7 @@
                 <p><strong>Email:</strong> {{ ipInfo.abuse?.email ?? 'N/A' }}</p>
                 <p><strong>Phone:</strong> {{ ipInfo.abuse?.phone ?? 'N/A' }}</p>
                 <p><strong>Network:</strong> {{ ipInfo.abuse?.network ?? 'N/A' }}</p>
-                <i class="fas fa-exclamation-triangle background-icon"></i>
+                <font-awesome-icon icon="exclamation-triangle" class="background-icon" />
               </div>
             </div>
           </div>
@@ -174,7 +175,8 @@
 
 /* 为 Privacy Information 添加特殊样式 */
 .info-card.privacy-info {
-  display: block; /* 改为块级显示 */
+  display: block;
+  /* 改为块级显示 */
 }
 
 .privacy-info .privacy-content {
@@ -231,10 +233,14 @@
 
 .background-icon {
   position: absolute;
-  bottom: -30px;  /* Adjusted from -10px to -30px */
-  right: -30px;   /* Adjusted from -10px to -30px */
-  font-size: 10rem;  /* Increased from 6rem to 10rem */
-  opacity: 0.08;  /* Slightly reduced opacity for better readability */
+  bottom: -30px;
+  /* Adjusted from -10px to -30px */
+  right: -30px;
+  /* Adjusted from -10px to -30px */
+  font-size: 10rem;
+  /* Increased from 6rem to 10rem */
+  opacity: 0.08;
+  /* Slightly reduced opacity for better readability */
   color: #007bff;
   transform: rotate(-15deg);
 }
@@ -266,7 +272,7 @@ export default {
         this.error = null; // Reset error before making the request
         const url = `https://ip.3k.free.hr/api/${this.ipAddress}`;
         const response = await axios.get(url);
-        
+
         if (response.data.error) {
           // If the API returns an error message
           this.error = response.data.error;

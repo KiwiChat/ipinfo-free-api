@@ -17,7 +17,7 @@
                 <div v-for="(value, key) in ipInfo" :key="key" class="info-item">
                   <span class="info-label">{{ formatLabel(key) }}</span>
                   <span class="info-value">{{ value }}</span>
-                  <i :class="getIconClass(key)" class="background-icon"></i>
+                  <font-awesome-icon :icon="getIconClass(key)" class="background-icon" />
                 </div>
               </div>
             </section>
@@ -31,11 +31,11 @@
                       <th>
                         Netblock
                         <button @click="copyNetblocks('v4')" class="copy-button" title="Copy IPv4 Netblocks">
-                          <i class="fas fa-copy"></i>
+                          <font-awesome-icon icon="copy" />
                         </button>
                       </th>
-                      <th v-for="header in ['ID', 'Name', 'Country', 'Size', 'Status', 'Domain']"
-                        :key="header">{{ header }}</th>
+                      <th v-for="header in ['ID', 'Name', 'Country', 'Size', 'Status', 'Domain']" :key="header">{{
+                        header }}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -59,11 +59,11 @@
                       <th>
                         Netblock
                         <button @click="copyNetblocks('v6')" class="copy-button" title="Copy IPv6 Netblocks">
-                          <i class="fas fa-copy"></i>
+                          <font-awesome-icon icon="copy" />
                         </button>
                       </th>
-                      <th v-for="header in ['ID', 'Name', 'Country', 'Size', 'Status', 'Domain']"
-                        :key="header">{{ header }}</th>
+                      <th v-for="header in ['ID', 'Name', 'Country', 'Size', 'Status', 'Domain']" :key="header">{{
+                        header }}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -84,7 +84,8 @@
                 <div class="peer-group">
                   <h3>Peers</h3>
                   <ul>
-                    <li v-for="peer in peerinfo.peers" :key="peer" @click="lookupAsn(peer.split(' ')[0])" class="asn-item">
+                    <li v-for="peer in peerinfo.peers" :key="peer" @click="lookupAsn(peer.split(' ')[0])"
+                      class="asn-item">
                       {{ peer }}
                     </li>
                   </ul>
@@ -92,7 +93,8 @@
                 <div class="peer-group">
                   <h3>Upstreams</h3>
                   <ul>
-                    <li v-for="upstream in peerinfo.upstreams" :key="upstream" @click="lookupAsn(upstream.split(' ')[0])" class="asn-item">
+                    <li v-for="upstream in peerinfo.upstreams" :key="upstream"
+                      @click="lookupAsn(upstream.split(' ')[0])" class="asn-item">
                       {{ upstream }}
                     </li>
                   </ul>
@@ -100,7 +102,8 @@
                 <div class="peer-group">
                   <h3>Downstreams</h3>
                   <ul>
-                    <li v-for="downstream in peerinfo.downstreams" :key="downstream" @click="lookupAsn(downstream.split(' ')[0])" class="asn-item">
+                    <li v-for="downstream in peerinfo.downstreams" :key="downstream"
+                      @click="lookupAsn(downstream.split(' ')[0])" class="asn-item">
                       {{ downstream }}
                     </li>
                   </ul>
@@ -201,16 +204,16 @@ export default {
     },
     getIconClass(key) {
       const iconMap = {
-        asn: 'fas fa-network-wired',
-        name: 'fas fa-building',
-        country: 'fas fa-globe',
-        allocated: 'fas fa-calendar-alt',
-        registry: 'fas fa-database',
-        domain: 'fas fa-globe-americas',
-        num_ips: 'fas fa-server',
-        type: 'fas fa-info-circle'
+        asn: 'network-wired',
+        name: 'building',
+        country: 'globe',
+        allocated: 'calendar-alt',
+        registry: 'database',
+        domain: 'globe-americas',
+        num_ips: 'server',
+        type: 'info-circle'
       };
-      return iconMap[key] || 'fas fa-question';
+      return iconMap[key] || 'question';
     }
   },
 };

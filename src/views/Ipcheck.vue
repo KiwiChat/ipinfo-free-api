@@ -28,9 +28,9 @@
                 <p v-if="domesticIpInfo"><strong>位置:</strong> {{ domesticIpInfo.city }}, {{ domesticIpInfo.country }}</p>
                 <p v-if="domesticIpInfo"><strong>运营商:</strong> {{ domesticIpInfo.asn?.name }}</p>
                 <button class="refresh-button" @click="lookupDomesticIp" title="刷新本机 IP 地址">
-                  <i class="fas fa-sync-alt"></i>
+                  <font-awesome-icon icon="sync-alt" />
                 </button>
-                <i class="fas fa-map-marker-alt background-icon"></i>
+                <font-awesome-icon icon="map-marker-alt" class="background-icon" />
               </div>
               <div class="info-card basic-info">
                 <h3>国外 IP 地址</h3>
@@ -43,9 +43,9 @@
                 <p v-if="foreignIpInfo"><strong>位置:</strong> {{ foreignIpInfo.city }}, {{ foreignIpInfo.country }}</p>
                 <p v-if="foreignIpInfo"><strong>运营商:</strong> {{ foreignIpInfo.asn?.name }}</p>
                 <button class="refresh-button" @click="lookupForeignIp" title="刷新国外 IP 地址">
-                  <i class="fas fa-sync-alt"></i>
+                  <font-awesome-icon icon="sync-alt" />
                 </button>
-                <i class="fas fa-globe background-icon"></i>
+                <font-awesome-icon icon="globe" class="background-icon" />
               </div>
             </div>
           </div>
