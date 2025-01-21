@@ -103,7 +103,7 @@ export default {
     },
     async lookupIpInfo(ip, type) {
       try {
-        const url = `https://ip.3k.free.hr/api/${ip}`;
+        const url = `https://verificati-ip.pages.dev/api/${ip}`;
         const response = await axios.get(url);
         
         if (response.data.error) {
