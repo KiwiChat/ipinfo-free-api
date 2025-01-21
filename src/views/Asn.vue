@@ -146,7 +146,7 @@ export default {
         const asn = this.ipAddress.toLowerCase().startsWith("as")
           ? this.ipAddress.substring(2)
           : this.ipAddress;
-        const url = `https://ip.3k.free.hr/api/AS${asn}`;
+        const url = `https://verificati-ip.pages.dev/api/AS${asn}`;
         const response = await axios.get(url);
         this.ipInfo = {
           asn: response.data.asn,
