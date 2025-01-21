@@ -270,7 +270,7 @@ export default {
     async lookupIpAddress() {
       try {
         this.error = null; // Reset error before making the request
-        const url = `https://ip.3k.free.hr/api/${this.ipAddress}`;
+        const url = `https://verificati-ip.pages.dev/api/${this.ipAddress}`;
         const response = await axios.get(url);
 
         if (response.data.error) {
